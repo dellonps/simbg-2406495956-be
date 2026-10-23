@@ -1,11 +1,17 @@
 package apap.ti._6.simbg_2406495956_be.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sekolah")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Sekolah {
     @Id
     private String id; // SKLxxxx
@@ -21,23 +27,4 @@ public class Sekolah {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Sekolah() {}
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
-    public String getNama() { return nama; }
-    public void setNama(String nama) { this.nama = nama; }
-
-    public String getEducationLevel() { return educationLevel; }
-    public void setEducationLevel(String educationLevel) { this.educationLevel = educationLevel; }
-
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
-
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }

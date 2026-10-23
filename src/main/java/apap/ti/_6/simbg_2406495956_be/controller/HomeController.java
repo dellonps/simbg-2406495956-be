@@ -7,16 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 import apap.ti._6.simbg_2406495956_be.dto.BaseResponse;
 import apap.ti._6.simbg_2406495956_be.dto.HomeResponse;
 import apap.ti._6.simbg_2406495956_be.service.InvoiceService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/home")
+@RequiredArgsConstructor
 public class HomeController {
 
     private final InvoiceService service;
-
-    public HomeController(InvoiceService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public BaseResponse<HomeResponse> getHome() {

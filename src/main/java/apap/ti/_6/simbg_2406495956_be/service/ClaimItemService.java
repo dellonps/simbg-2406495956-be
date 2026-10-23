@@ -10,6 +10,7 @@ import apap.ti._6.simbg_2406495956_be.model.BudgetComponent;
 import apap.ti._6.simbg_2406495956_be.repository.BudgetComponentRepository;
 import apap.ti._6.simbg_2406495956_be.repository.ClaimItemRepository;
 import apap.ti._6.simbg_2406495956_be.repository.ClaimRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,19 +18,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ClaimItemService {
 
     private final ClaimItemRepository itemRepository;
     private final ClaimRepository claimRepository;
     private final BudgetComponentRepository componentRepository;
-
-    public ClaimItemService(ClaimItemRepository itemRepository,
-                            ClaimRepository claimRepository,
-                            BudgetComponentRepository componentRepository) {
-        this.itemRepository = itemRepository;
-        this.claimRepository = claimRepository;
-        this.componentRepository = componentRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<ClaimItemResponse> getAll(String claimId) {

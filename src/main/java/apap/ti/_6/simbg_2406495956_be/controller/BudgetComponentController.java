@@ -16,16 +16,14 @@ import apap.ti._6.simbg_2406495956_be.dto.BaseResponse;
 import apap.ti._6.simbg_2406495956_be.dto.BudgetComponentRequest;
 import apap.ti._6.simbg_2406495956_be.dto.BudgetComponentResponse;
 import apap.ti._6.simbg_2406495956_be.service.BudgetComponentService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/anggaran/{anggaranId}/komponen")
+@RequiredArgsConstructor
 public class BudgetComponentController {
 
     private final BudgetComponentService service;
-
-    public BudgetComponentController(BudgetComponentService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public BaseResponse<List<BudgetComponentResponse>> getAll(@PathVariable String anggaranId) {

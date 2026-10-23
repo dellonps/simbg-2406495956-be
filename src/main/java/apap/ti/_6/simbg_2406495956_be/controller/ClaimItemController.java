@@ -16,16 +16,14 @@ import apap.ti._6.simbg_2406495956_be.dto.BaseResponse;
 import apap.ti._6.simbg_2406495956_be.dto.ClaimItemRequest;
 import apap.ti._6.simbg_2406495956_be.dto.ClaimItemResponse;
 import apap.ti._6.simbg_2406495956_be.service.ClaimItemService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/claim/{claimId}/item")
+@RequiredArgsConstructor
 public class ClaimItemController {
 
     private final ClaimItemService service;
-
-    public ClaimItemController(ClaimItemService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public BaseResponse<List<ClaimItemResponse>> getAll(@PathVariable String claimId) {

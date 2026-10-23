@@ -24,8 +24,10 @@ import apap.ti._6.simbg_2406495956_be.repository.AnggaranRepository;
 import apap.ti._6.simbg_2406495956_be.repository.ClaimRepository;
 import apap.ti._6.simbg_2406495956_be.repository.PaymentInvoiceRepository;
 import apap.ti._6.simbg_2406495956_be.repository.SekolahRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class InvoiceService {
 
     private static final List<String> CLAIM_STATUSES =
@@ -35,16 +37,6 @@ public class InvoiceService {
     private final ClaimRepository claimRepository;
     private final AnggaranRepository anggaranRepository;
     private final SekolahRepository sekolahRepository;
-
-    public InvoiceService(PaymentInvoiceRepository invoiceRepository,
-                          ClaimRepository claimRepository,
-                          AnggaranRepository anggaranRepository,
-                          SekolahRepository sekolahRepository) {
-        this.invoiceRepository = invoiceRepository;
-        this.claimRepository = claimRepository;
-        this.anggaranRepository = anggaranRepository;
-        this.sekolahRepository = sekolahRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<InvoiceResponse> getAll() {

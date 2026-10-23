@@ -9,6 +9,7 @@ import apap.ti._6.simbg_2406495956_be.model.Sekolah;
 import apap.ti._6.simbg_2406495956_be.repository.AnggaranRepository;
 import apap.ti._6.simbg_2406495956_be.repository.BudgetComponentRepository;
 import apap.ti._6.simbg_2406495956_be.repository.SekolahRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,19 +17,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AnggaranService {
 
     private final AnggaranRepository anggaranRepository;
     private final SekolahRepository sekolahRepository;
     private final BudgetComponentRepository budgetComponentRepository;
-
-    public AnggaranService(AnggaranRepository anggaranRepository,
-                           SekolahRepository sekolahRepository,
-                           BudgetComponentRepository budgetComponentRepository) {
-        this.anggaranRepository = anggaranRepository;
-        this.sekolahRepository = sekolahRepository;
-        this.budgetComponentRepository = budgetComponentRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<AnggaranResponse> getAll() {

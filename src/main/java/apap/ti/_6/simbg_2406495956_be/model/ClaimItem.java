@@ -7,9 +7,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "claim_item")
+@Getter
+@Setter
+@NoArgsConstructor
 public class ClaimItem {
     @Id
     private String id; // CLIxxxx
@@ -34,26 +40,4 @@ public class ClaimItem {
     @JoinColumn(name = "budget_component_id", nullable = false)
     private BudgetComponent budgetComponent;
 
-    public ClaimItem() {}
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-
-    public Integer getQuantity() { return quantity; }
-    public void setQuantity(Integer quantity) { this.quantity = quantity; }
-
-    public Integer getUnitPrice() { return unitPrice; }
-    public void setUnitPrice(Integer unitPrice) { this.unitPrice = unitPrice; }
-
-    public Integer getAmount() { return amount; }
-    public void setAmount(Integer amount) { this.amount = amount; }
-
-    public Claim getClaim() { return claim; }
-    public void setClaim(Claim claim) { this.claim = claim; }
-
-    public BudgetComponent getBudgetComponent() { return budgetComponent; }
-    public void setBudgetComponent(BudgetComponent budgetComponent) { this.budgetComponent = budgetComponent; }
 }

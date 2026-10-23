@@ -11,6 +11,7 @@ import apap.ti._6.simbg_2406495956_be.model.Claim;
 import apap.ti._6.simbg_2406495956_be.model.ClaimItem;
 import apap.ti._6.simbg_2406495956_be.repository.AnggaranRepository;
 import apap.ti._6.simbg_2406495956_be.repository.ClaimRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class ClaimService {
 
     private static final int MAX_RESUBMIT = 3;
@@ -33,11 +35,6 @@ public class ClaimService {
 
     private final ClaimRepository claimRepository;
     private final AnggaranRepository anggaranRepository;
-
-    public ClaimService(ClaimRepository claimRepository, AnggaranRepository anggaranRepository) {
-        this.claimRepository = claimRepository;
-        this.anggaranRepository = anggaranRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<ClaimResponse> getAll() {

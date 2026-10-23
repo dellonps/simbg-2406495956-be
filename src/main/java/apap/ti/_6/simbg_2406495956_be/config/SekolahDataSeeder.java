@@ -2,6 +2,7 @@ package apap.ti._6.simbg_2406495956_be.config;
 
 import apap.ti._6.simbg_2406495956_be.model.Sekolah;
 import apap.ti._6.simbg_2406495956_be.repository.SekolahRepository;
+import lombok.RequiredArgsConstructor;
 import net.datafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,13 +11,10 @@ import java.time.LocalDateTime;
 import java.util.Locale;
 
 @Component
+@RequiredArgsConstructor
 public class SekolahDataSeeder implements CommandLineRunner {
 
     private final SekolahRepository sekolahRepository;
-
-    public SekolahDataSeeder(SekolahRepository sekolahRepository) {
-        this.sekolahRepository = sekolahRepository;
-    }
 
     @Override
     public void run(String... args) {

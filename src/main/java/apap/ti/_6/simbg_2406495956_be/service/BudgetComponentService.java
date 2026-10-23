@@ -9,6 +9,7 @@ import apap.ti._6.simbg_2406495956_be.model.BudgetComponent;
 import apap.ti._6.simbg_2406495956_be.repository.AnggaranRepository;
 import apap.ti._6.simbg_2406495956_be.repository.BudgetComponentRepository;
 import apap.ti._6.simbg_2406495956_be.repository.ClaimItemRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,19 +17,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BudgetComponentService {
 
     private final BudgetComponentRepository componentRepository;
     private final AnggaranRepository anggaranRepository;
     private final ClaimItemRepository claimItemRepository;
-
-    public BudgetComponentService(BudgetComponentRepository componentRepository,
-                                  AnggaranRepository anggaranRepository,
-                                  ClaimItemRepository claimItemRepository) {
-        this.componentRepository = componentRepository;
-        this.anggaranRepository = anggaranRepository;
-        this.claimItemRepository = claimItemRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<BudgetComponentResponse> getAll(String anggaranId) {

@@ -18,16 +18,14 @@ import apap.ti._6.simbg_2406495956_be.dto.ClaimRequest;
 import apap.ti._6.simbg_2406495956_be.dto.ClaimResponse;
 import apap.ti._6.simbg_2406495956_be.dto.ClaimStatusRequest;
 import apap.ti._6.simbg_2406495956_be.service.ClaimService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/claim")
+@RequiredArgsConstructor
 public class ClaimController {
 
     private final ClaimService claimService;
-
-    public ClaimController(ClaimService claimService) {
-        this.claimService = claimService;
-    }
 
     @GetMapping
     public BaseResponse<List<ClaimResponse>> getAll() {

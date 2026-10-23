@@ -4,6 +4,7 @@ import apap.ti._6.simbg_2406495956_be.dto.AnggaranRequest;
 import apap.ti._6.simbg_2406495956_be.dto.AnggaranResponse;
 import apap.ti._6.simbg_2406495956_be.dto.BaseResponse;
 import apap.ti._6.simbg_2406495956_be.service.AnggaranService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/anggaran")
+@RequiredArgsConstructor
 public class AnggaranController {
 
     private final AnggaranService anggaranService;
-
-    public AnggaranController(AnggaranService anggaranService) {
-        this.anggaranService = anggaranService;
-    }
 
     @GetMapping
     public BaseResponse<List<AnggaranResponse>> getAll() {

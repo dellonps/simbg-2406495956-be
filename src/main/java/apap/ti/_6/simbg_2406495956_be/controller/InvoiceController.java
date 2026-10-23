@@ -16,16 +16,14 @@ import apap.ti._6.simbg_2406495956_be.dto.InvoiceRequest;
 import apap.ti._6.simbg_2406495956_be.dto.InvoiceResponse;
 import apap.ti._6.simbg_2406495956_be.dto.InvoiceStatistikResponse;
 import apap.ti._6.simbg_2406495956_be.service.InvoiceService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/invoice")
+@RequiredArgsConstructor
 public class InvoiceController {
 
     private final InvoiceService service;
-
-    public InvoiceController(InvoiceService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public BaseResponse<List<InvoiceResponse>> getAll() {
